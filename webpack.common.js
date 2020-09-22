@@ -73,7 +73,8 @@ module.exports = {
   },
   plugins: [
     // ビルド前、出力ディレクトリを削除してから行う
-    new CleanWebpackPlugin(),
+    // cleanStaleWebpackAssets: false の設定により watch モードで不要な削除を行わないようにする
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     // 必要な分、書き足していく
     new HtmlWebpackPlugin({
       filename: 'index.html',
