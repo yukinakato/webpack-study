@@ -9,16 +9,20 @@ module.exports = merge(common, {
     minimizer: [
       // minimizer のデフォルトを上書きしてしまうため、Terser の項目を改めて指定する必要がある
       new TerserPlugin({
-        // ライセンスファイルを別途抽出しない。
+        // ライセンスファイルを別途抽出しない
         extractComments: false,
         terserOptions: {
           compress: {
-            // console.log を自動で削除する。
+            // console.log を自動で削除する
             drop_console: true,
           },
+          output: {
+            // コメントを削除する
+            comments: false,
+          }
         },
       }),
-      // css をミニファイする。
+      // css をミニファイする
       new OptimizeCSSAssetsPlugin({}),
     ],
   },
