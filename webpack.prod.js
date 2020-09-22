@@ -16,10 +16,6 @@ module.exports = merge(common, {
             // console.log を自動で削除する
             drop_console: true,
           },
-          output: {
-            // コメントを削除する
-            comments: false,
-          }
         },
       }),
       // css をミニファイする
