@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -72,6 +73,13 @@ module.exports = {
     ],
   },
   plugins: [
+    // jQuery のようによく使うものは、以下のようにしておくと
+    // 各 js ファイルで import $ from "jquery"; とする必要がなくなる
+    // ESLint が $ に警告を出さないように、.eslintrc.json の env に
+    // "jquery": true を追加する必要がある
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    }),
     // ビルド前、出力ディレクトリを削除してから行う
     // cleanStaleWebpackAssets: false の設定により watch モードで不要な削除を行わないようにする
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),

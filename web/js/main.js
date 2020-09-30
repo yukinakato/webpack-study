@@ -1,5 +1,6 @@
 import { myadd, mysub } from "./module/myfunc";
-import $ from "jquery";
+// ProvidePlugin により、不要になる
+// import $ from "jquery";
 import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
 import "../scss/style.scss";

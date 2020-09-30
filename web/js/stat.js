@@ -1,5 +1,6 @@
 import { myadd } from "./module/myfunc";
-import $ from "jquery";
+// ProvidePlugin により、不要になる
+// import $ from "jquery";
 import Chart from "chart.js";
 const ctx = document.getElementById("stat").getContext("2d");
 new Chart(ctx, {});
